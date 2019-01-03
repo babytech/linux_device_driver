@@ -281,5 +281,5 @@ static void __exit gfifo_exit(void)
 }
 module_exit(gfifo_exit);
 
-MODULE_AUTHOR("xin.ming@nokia-sbell.com");
+MODULE_AUTHOR("babytech@126.com");
 MODULE_LICENSE("GPL v2");

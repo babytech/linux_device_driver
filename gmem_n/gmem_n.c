@@ -198,5 +198,5 @@ static void __exit gmem_exit(void)
 }
 module_exit(gmem_exit);
 
-MODULE_AUTHOR("xin.ming@nokia-sbell.com");
+MODULE_AUTHOR("babytech@126.com");
 MODULE_LICENSE("GPL v2");
