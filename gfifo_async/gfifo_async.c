@@ -12,7 +12,7 @@
 #include <linux/uaccess.h>
 
 #define GFIFO_MAJOR 232
-#define GFIFO_SIZE 0x1000
+#define GFIFO_SIZE 0x100
 #define MEM_CLEAR 0x1
 
 static int gfifo_major = GFIFO_MAJOR;
@@ -204,7 +204,7 @@ static loff_t gfifo_llseek(struct file *filp, loff_t offset, int orig)
 
 static unsigned int gfifo_poll(struct file *filp, poll_table *p) 
 {
-	unsigned int ret = 0;
+	unsigned int mask = 0;
 	struct gfifo_dev *dev = filp->private_data;	
 
 	mutex_lock(&dev->mutex);
@@ -213,12 +213,12 @@ static unsigned int gfifo_poll(struct file *filp, poll_table *p)
 	poll_wait(filp, &dev->w_wait, p);
 
 	if (dev->cur_len != 0)
-		ret = POLLIN|POLLRDNORM;
+		mask |= POLLIN|POLLRDNORM;
 	if (dev->cur_len != GFIFO_SIZE)
-		ret = POLLOUT|POLLWRNORM;
+		mask |= POLLOUT|POLLWRNORM;
 
 	mutex_unlock(&dev->mutex);
-	return ret;
+	return mask;
 }
 
 static struct file_operations gfifo_fops = {

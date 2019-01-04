@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <fcntl.h>
+#include <sys/ioctl.h>
 #include <sys/epoll.h>
 /* According to POSIX.1-2001 */
 #include <sys/select.h>
