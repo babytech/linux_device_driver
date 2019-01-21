@@ -11,7 +11,12 @@
 #include <linux/uaccess.h>
 #include <linux/platform_device.h>
 #include <linux/miscdevice.h>
+#include <linux/version.h>
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4,12,0))
+#include <linux/signal.h>
+#else
 #include <linux/sched/signal.h>
+#endif
 
 #define GFIFO_SIZE 0x100
 #define MEM_CLEAR 0x1
