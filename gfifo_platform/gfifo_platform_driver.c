@@ -10,6 +10,7 @@
 #include <linux/poll.h>
 #include <linux/uaccess.h>
 #include <linux/platform_device.h>
+#include <linux/sched/signal.h>
 
 #define GFIFO_MAJOR 232
 #define GFIFO_SIZE 0x100

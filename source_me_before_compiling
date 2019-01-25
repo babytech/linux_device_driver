@@ -1,0 +1,23 @@
+#
+# run: source ./source_me_before_compiling 
+#
+
+
+if [ -f "$(dirname $0)/../../script/system.conf" ]; then
+    # we are in 'linux_learning_environment'
+    # see: https://github.com/guolinp/linux_learning_environment
+    # use cross compile provided by 'linux_learning_environment'
+    . $(dirname $0)/../../script/system.conf
+    ENV_CC_COMPILE=$cross_compile
+    ENV_KERNEL_DIR=$linux_dir
+else
+    # use local cross compile
+    ENV_CC_COMPILE="?"
+    ENV_KERNEL_DIR="?"
+    echo "==================================================="
+    echo "ERROR: PLEASE SET YOUR CROSS-COMPILE AND KERNEL DIR"
+    echo "==================================================="
+fi
+
+export ENV_CC_COMPILE
+export ENV_KERNEL_DIR

@@ -11,6 +11,7 @@
 #include <linux/uaccess.h>
 #include <linux/platform_device.h>
 #include <linux/miscdevice.h>
+#include <linux/sched/signal.h>
 
 #define GFIFO_SIZE 0x100
 #define MEM_CLEAR 0x1

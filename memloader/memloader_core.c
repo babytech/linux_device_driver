@@ -312,7 +312,7 @@ module_init(memloader_init);
 module_exit(memloader_exit);
 
 /******************************************************************************/
-MODULE_AUTHOR("PAN Guolin <guolinp@gmail.com>");
+MODULE_AUTHOR("PAN Guolin <Guolin.Pan@nokia-sbell.com>");
 MODULE_DESCRIPTION("Memory Loader");
 MODULE_LICENSE("GPL");
 MODULE_VERSION(DRIVER_VERSION);
