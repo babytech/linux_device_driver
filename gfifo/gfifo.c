@@ -9,6 +9,7 @@
 #include <linux/cdev.h>
 #include <linux/slab.h>
 #include <linux/uaccess.h>
+#include <linux/sched/signal.h>
 
 #define GFIFO_MAJOR 231
 #define GFIFO_SIZE 0x1000

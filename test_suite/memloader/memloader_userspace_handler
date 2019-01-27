@@ -1,0 +1,29 @@
+#!/bin/sh
+
+program=$(basename $0)
+logfile=$(dirname $0)/memloader.log
+
+log() #str
+{
+     echo "[$program] $@" >> $logfile
+}
+
+# clean old logfile 
+rm -rf $logfile
+touch $logfile
+
+log "Hello, I am $program"
+
+fw_source_file=$(dirname $0)/demo_firmware_file
+fw_target_file=/sys/class/firmware/demo_firmware_filename/data
+
+log "fw source: $fw_source_file"
+log "fw target: $fw_target_file"
+
+log "Copy start..."
+
+echo 1 > /sys/class/firmware/demo_firmware_filename/loading
+cat $fw_source_file > $fw_target_file
+echo 0 > /sys/class/firmware/demo_firmware_filename/loading
+
+log "Copy done."

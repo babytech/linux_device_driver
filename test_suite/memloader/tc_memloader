@@ -1,0 +1,35 @@
+#!/bin/sh
+
+program=$(basename $0)
+
+info() #str
+{
+    echo "[$program] $@"
+}
+
+
+info "create test firmware file"
+dd if=/dev/zero bs=1M count=4 | tr '\000' '\366' > demo_firmware_file   #\366 is 0xFE
+
+info "set 'memloader_userspace_handler' as the hotplug handler"
+echo $(realpath $(dirname $0)/memloader_userspace_handler) > /proc/sys/kernel/hotplug
+
+info "trigger firmware loading"
+echo 0 > /sys/devices/platform/firmware-memory/fw/state
+echo 1 > /sys/devices/platform/firmware-memory/fw/state
+
+info "verify"
+load_address=$(cat /sys/devices/platform/firmware-memory/memloader/load-address)
+load_size=$(cat /sys/devices/platform/firmware-memory/memloader/load-size)
+info "firmware load-address"
+echo $load_address
+info "firmware load-size"
+echo $load_size
+
+# better read all data to check
+read_val=$(devmem $load_address)
+if [ "$read_val" = "0xF6F6F6F6" ]; then
+    info "Load sucess"
+else
+    info "Load fail"
+fi
