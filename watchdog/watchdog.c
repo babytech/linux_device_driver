@@ -171,7 +171,7 @@ static void dev_watchdog_work(struct work_struct *work)
 }
 
 /******************************************************************************/
-static void dev_watchdog_timeout(unsigned long data)
+static void dev_watchdog_timeout(struct timer_list *t)
 {
 	if (!priv.timer_running)
 		return;
@@ -435,7 +435,7 @@ int __init dev_watchdog_init(void)
 
 	memset(&priv, 0, sizeof(priv));
 
-	setup_timer(&priv.timer, dev_watchdog_timeout, 0);
+	timer_setup(&priv.timer, dev_watchdog_timeout, 0);
 
 	return platform_driver_register(&dev_watchdog_driver);
 }

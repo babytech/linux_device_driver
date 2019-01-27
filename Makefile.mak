@@ -18,4 +18,4 @@ all:
 
 .PHONY : clean
 clean:
-	cd $(PWD) && rm -rf *.o *~ *.ko *mod* .*.cmd *.symvers .tmp_versions
+	cd $(PWD) && rm -rf *.o *~ *.ko *mod* .cache* .*.cmd *.symvers .tmp_versions
