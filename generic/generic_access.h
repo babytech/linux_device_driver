@@ -1,6 +1,4 @@
 /******************************************************************************
- * Copyright (c) 2015 Alcatel-Lucent
- * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of version 2 of the GNU General Public License as
@@ -15,26 +13,6 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- *
-*******************************************************************************/
-/******************************************************************************
-**                                                                           **
-**                           ALCATEL-LUCENT                                  **
-**                                                                           **
-*******************************************************************************/
-
-/*************************** IDENTIFICATION ***********************************
-**
-** Project       : REBORN
-**
-** File name     : generic_access.h
-**
-** Description   : Interface to the generic access driver
-**
-** Contact       : Tom Philips (tom.philips@nokia.com)
-**
-** Creation Date : 28.11.2014
-**
 *******************************************************************************/
 #ifndef KERNEL_GENERIC_ACCESS_H
 #define KERNEL_GENERIC_ACCESS_H

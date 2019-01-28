@@ -29,17 +29,7 @@
 #include <linux/of_address.h>
 #include <linux/workqueue.h>
 #include "generic_access.h"
-
-/* Redefine to even lower level atomic accesses (protected by a spinlock) */
-#define dev_read(addr)					ga_reg_read8(addr, 0xff)
-#define dev_read8(addr)					ga_reg_read8(addr, 0xff)
-#define dev_read16(addr)				ga_reg_read16(addr, 0xffff)
-#define dev_write(addr, val)				ga_reg_write8(addr, 0xff, val, GA_WRITE)
-#define dev_write8(addr, val)				ga_reg_write8(addr, 0xff, val, GA_WRITE)
-#define dev_write16(addr, val)				ga_reg_write16(addr, 0xffff, val, GA_WRITE)
-/* Read from addr, disable bits in mask, update bits in upd and write to addr */
-#define dev_read_modify_write(addr, mask, upd)		ga_reg_write8(addr, mask, upd, GA_READ_WRITE_ALWAYS) /* forced write */
-#define dev_read_modify_write_cond(addr, mask, upd)	ga_reg_write8(addr, mask, upd, GA_READ_WRITE_CONDITIONAL) 
+#include "dev_common.h"
 
 /******************************************************************************/
 #define DEV_WATCHDOG_KICK_INTERVAL	1000 /* ms */
