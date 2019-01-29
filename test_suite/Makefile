@@ -6,7 +6,7 @@ endif
 
 CC_COMPILE_GCC = $(CC_COMPILE)gcc
 
-apps = file_reader_app gfifo_poll_app gfifo_poll_n_app gfifo_signal_app
+apps = file_reader_app gfifo_poll_app gfifo_poll_n_app gfifo_signal_app asciidump_app
 
 all: $(apps)
 
@@ -21,6 +21,9 @@ gfifo_poll_n_app:
 
 gfifo_signal_app:
 	$(CC_COMPILE_GCC) gfifo_signal.c -o gfifo_signal_app
+
+asciidump_app:
+	$(CC_COMPILE_GCC) asciidump.c    -o asciidump_app
 
 list:
 	@echo $(apps)
