@@ -4,25 +4,26 @@
   ```bash
   $ ./script/compile_drv logbuffer
   ```
-## copy `logbuffer.ko` then rebuild buildroot.why?
-  ```bash
-  $ cp project/linux_device_driver/logbuffer/logbuffer.ko software/buildroot-2018.11.1/output/target
-  $ cd software/buildroot-2018.11.1
-  $ make
-  ```
 ## start uboot in qemu
   ```bash
   $ ./script/qemu_uboot_start
   ```
-## press any key to stop uboot shell, then start linux
+## press any key to stop in uboot shell, then start linux
   ```bash
   setenv bootargs 'root=/dev/mmcblk0 rw console=ttyAMA0 init=/linuxrc'
   ext2load mmc 0:0 0x60100000 /boot/uImage
   ext2load mmc 0:0 0x60600000 /boot/vexpress-v2p-ca9.dtb
   bootm 0x60100000 - 0x60600000
   ```
+
+## copy `logbuffer.ko`to guest linux
+  ```bash
+  $ ./script/copy_to_linux  project/linux_device_driver/logbuffer/logbuffer.ko
+  ```
+
 ## in guest linux, insert `logbuffer.ko`
   ```bash
+  # cd /share
   # insmod logbuffer.ko
   ```
 
