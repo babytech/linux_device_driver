@@ -57,8 +57,7 @@ static void process_logbuffer(void *logbuffer,char *buffer_name,unsigned long si
 		local_buffer[local_idx] = buf[log_idx & LOGBUFF_MASK];
 		if (buf[log_idx & LOGBUFF_MASK] == '\n') {
 			local_buffer[++local_idx] = 0;
-			/* We use local_buffer+3 to skip the linux loglevel <X> */
-			seq_printf(m,"%s: %s",buffer_name,local_buffer+3);
+			seq_printf(m,"%s: %s",buffer_name,local_buffer);
 			local_idx = 0;
 		}
 		else {
