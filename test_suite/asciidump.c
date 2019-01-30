@@ -137,12 +137,14 @@ int main(int argc, char *argv[])
 	unsigned long size;
 
 	if (argc < 3) {
-		fprintf(stderr, "usage: %s <addr> <size>\n", argv[0]);
+		fprintf(stderr, "Usage: %s <memory_address> <size>\n", argv[0]);
 		return -1;
 	}
 
 	paddr = strtoull(argv[1], NULL, 16);
 	size = strtoul(argv[2], NULL, 10);
+
+	fprintf(stderr, "Address: 0x%llx, Size: %d\n", paddr, size);
 
 	show(paddr, size);
 
