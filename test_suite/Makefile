@@ -8,7 +8,7 @@ CC_COMPILE_GCC = $(CC_COMPILE)gcc
 
 apps = file_reader_app gfifo_poll_app gfifo_poll_n_app gfifo_signal_app \
 	calamares_app clearmem_app dump_memory_to_file_app smemcap_app \
-	limitfs_app mem_util_app
+	limitfs_app mem_util_app asciidump_app
 
 all: $(apps)
 
@@ -41,6 +41,9 @@ limitfs_app:
 
 mem_util_app:
 	$(CC_COMPILE_GCC) memutil/mem_util.c memutil/mem_ops.c memutil/work_paras.c -o mem_util_app
+
+asciidump_app:
+	$(CC_COMPILE_GCC) asciidump.c -o asciidump_app
 
 list:
 	@echo $(apps)
