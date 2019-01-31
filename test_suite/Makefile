@@ -8,7 +8,7 @@ CC_COMPILE_GCC = $(CC_COMPILE)gcc
 
 apps = file_reader_app gfifo_poll_app gfifo_poll_n_app gfifo_signal_app  \
        calamares_app clearmem_app dump_memory_to_file_app smemcap_app    \
-       limitfs_app mem_util_app asciidump_app
+       limitfs_app mem_util_app asciidump_app netlink_app
 
 all: $(apps)
 
@@ -44,6 +44,9 @@ mem_util_app:
 
 asciidump_app:
 	$(CC_COMPILE_GCC) -o $@ asciidump.c
+
+netlink_app:
+	$(CC_COMPILE_GCC) -o $@ netlink.c
 
 list:
 	@echo $(apps)
