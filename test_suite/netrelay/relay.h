@@ -1,4 +1,5 @@
-
+#ifndef __RELAY_H_
+#define __RELAY_H_
 enum service_id {
 	SERVICE_TO_NET = 0x1,
 	NET_TO_SERVICE = 0x2
@@ -72,4 +73,4 @@ int getLLsocketOf(int fd, char *name, struct sockaddr_ll *ll_sockaddr);
 int getMacAddressOf(int raw_socket_fd, char *name, unsigned char *macAddrTab);
 void attachItfFilter(int itf, struct sock_filter *filter_data, unsigned short filter_len);
 int setItfToPromiscModeAndDisableArpProtocol(int fd, char *name);
-
+#endif

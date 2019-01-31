@@ -1,22 +1,8 @@
 /*
-   Copyright (c) 2016 Nokia. All rights reserved.
-   This program contains proprietary information which is a trade secret
-   of Nokia and also is protected as an unpublished work under applicable
-   Copyright laws. Recipient is to retain this program in confidence and
-   is not permitted to use or make copies thereof other than as permitted
-   in a written agreement with Nokia.
- */
-
-/*
-   ZTP adaption for mini-olt
-   ZTP FEATURE: ALU02074765
-
    dhcp relay flow:   
    inband itf<---dhcp filter---oamVlan|dhcpVlan--->dummy-dhcp
    dhcpVlan = oamVlan-1
-
    packaget from inband itf must be with OAM vlan, untagged or other vlan is not supported
-
  */
 #include <assert.h>
 #include <ctype.h>
