@@ -6,9 +6,9 @@ endif
 
 CC_COMPILE_GCC = $(CC_COMPILE)gcc
 
-apps = file_reader_app gfifo_poll_app gfifo_poll_n_app gfifo_signal_app  \
-       calamares_app clearmem_app dump_memory_to_file_app smemcap_app    \
-       limitfs_app mem_util_app asciidump_app
+apps = file_reader_app gfifo_poll_app gfifo_poll_n_app gfifo_signal_app      \
+       calamares_app clearmem_app dump_memory_to_file_app smemcap_app        \
+       limitfs_app mem_util_app asciidump_app dhcp_filter_app eoe_filter_app 
 
 all: $(apps)
 
@@ -44,6 +44,12 @@ mem_util_app:
 
 asciidump_app:
 	$(CC_COMPILE_GCC) -o $@ asciidump.c
+
+dhcp_filter_app:
+	$(CC_COMPILE_GCC) -o $@ netrelay/relay.c netrelay/dhcp_filter.c
+
+eoe_filter_app:
+	$(CC_COMPILE_GCC) -o $@ netrelay/relay.c netrelay/eoe_filter.c
 
 list:
 	@echo $(apps)
