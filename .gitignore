@@ -38,6 +38,10 @@ Module.symvers
 *.dwo
 *.su
 *.c.[012]*.*
+*.cmd
+*.symvers
+.cache.*
+.tmp_versions
 
 #
 # Top-level generic files
